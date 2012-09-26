@@ -1,29 +1,12 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Content</th>
-    <th>Published at</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Neo Blog</h1>
 
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.description %></td>
-    <td><%= post.content %></td>
-    <td><%= post.published_at %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
-  </tr>
+  <article class="post">
+    <h1><%= link_to post.title, post %></h1>
+    <p class="description"><%= post.description %></p>
+    <span>Published at: <%= post.published_at %></span>
+  </article>
 <% end %>
-</table>
-
 <br />
 
 <%= link_to 'New Post', new_post_path %>
